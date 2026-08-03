@@ -2,12 +2,12 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
 const FACE_URLS = [
-  "textures/face-px.svg", // +X right
-  "textures/face-nx.svg", // -X left
-  "textures/face-py.svg", // +Y top
-  "textures/face-ny.svg", // -Y bottom
-  "textures/face-pz.svg", // +Z front
-  "textures/face-nz.svg", // -Z back
+  "textures/cube_planet_side_1.png", // +X right
+  "textures/cube_planet_side_1.png", // -X left
+  "textures/cube_planet_side_1.png", // +Y top
+  "textures/cube_planet_side_1.png", // -Y bottom
+  "textures/cube_planet_side_1.png", // +Z front
+  "textures/cube_planet_side_1.png", // -Z back
 ];
 
 const canvas = document.getElementById("scene");
