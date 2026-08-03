@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <title>Cube Map — 3D Planet Cube in Space</title>
+  <meta name="description" content="An interactive 3D cube map planet floating in a starfield. Rotate and zoom on desktop or mobile." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="app">
+    <canvas id="scene"></canvas>
+
+    <div id="loading" class="loading">
+      <div class="loading__spinner"></div>
+      <div class="loading__text">Loading cube map…</div>
+    </div>
+
+    <header class="hud hud--top">
+      <h1 class="hud__title">Cube Map</h1>
+      <p class="hud__subtitle">a 3D planet, six faces, one map</p>
+    </header>
+
+    <footer class="hud hud--bottom">
+      <p class="hud__hint">
+        <span class="hud__hint-desktop">Drag to rotate · Scroll to zoom</span>
+        <span class="hud__hint-mobile">Swipe to rotate · Pinch to zoom</span>
+      </p>
+      <button id="autoRotateBtn" class="hud__button" type="button" aria-pressed="true">
+        Auto-rotate: On
+      </button>
+    </footer>
+  </div>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

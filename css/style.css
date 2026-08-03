@@ -1,0 +1,163 @@
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #000005;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#app {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+}
+
+#scene {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+.hud {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: max(16px, env(safe-area-inset-top)) 20px max(16px, env(safe-area-inset-bottom));
+  pointer-events: none;
+  color: #e8ecff;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+.hud--top {
+  top: 0;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2px;
+}
+
+.hud--bottom {
+  bottom: 0;
+  gap: 12px;
+}
+
+.hud__title {
+  margin: 0;
+  font-size: clamp(20px, 4vw, 28px);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hud__subtitle {
+  margin: 0;
+  font-size: clamp(11px, 2.5vw, 14px);
+  opacity: 0.65;
+  font-weight: 400;
+}
+
+.hud__hint {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.hud__hint-mobile {
+  display: none;
+}
+
+.hud__button {
+  pointer-events: auto;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #e8ecff;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background 0.2s ease, transform 0.1s ease;
+  white-space: nowrap;
+}
+
+.hud__button:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.hud__button:active {
+  transform: scale(0.96);
+}
+
+.loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: #000005;
+  z-index: 10;
+  transition: opacity 0.5s ease;
+  color: #e8ecff;
+}
+
+.loading.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading__spinner {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.15);
+  border-top-color: #7ea6ff;
+  animation: spin 0.9s linear infinite;
+}
+
+.loading__text {
+  font-size: 13px;
+  opacity: 0.7;
+  letter-spacing: 0.04em;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .hud__hint-desktop {
+    display: none;
+  }
+  .hud__hint-mobile {
+    display: inline;
+  }
+}
+
+@media (max-width: 480px) {
+  .hud--bottom {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
